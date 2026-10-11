@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS atencion (
+    id BIGSERIAL PRIMARY KEY,
+    codigo VARCHAR(50) NOT NULL UNIQUE,
+    paciente_id BIGINT NOT NULL,
+    cita_id BIGINT NOT NULL UNIQUE,
+    fecha_atencion TIMESTAMP NOT NULL,
+    area VARCHAR(100) NOT NULL,
+    estado VARCHAR(20) NOT NULL
+);

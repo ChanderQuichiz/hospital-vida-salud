@@ -17,13 +17,8 @@
     <description>Proyecto Multimódulo Reactivo Hospital Vida Salud</description>
 
     <modules>
-        <module>eureka-server</module>
-        <module>gateway</module>
         <module>pacientes-service</module>
         <module>citas-service</module>
-        <module>atenciones-service</module>
-        <module>notificaciones-service</module>
-        <module>auditoria-service</module>
     </modules>
 
     <properties>

@@ -1,0 +1,15 @@
+spring:
+  r2dbc:
+    url: r2dbc:h2:mem:///notificacionesdb;DB_CLOSE_DELAY=-1
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+      - org.springframework.cloud.client.discovery.composite.CompositeDiscoveryClientAutoConfiguration
+
+eureka:
+  client:
+    enabled: false

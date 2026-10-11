@@ -1,0 +1,176 @@
+services:
+
+  postgres-pacientes:
+    image: postgres:16-alpine
+    container_name: postgres-pacientes
+    environment:
+      POSTGRES_DB: hospital_pacientes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  postgres-citas:
+    image: postgres:16-alpine
+    container_name: postgres-citas
+    environment:
+      POSTGRES_DB: hospital_citas
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+
+  postgres-atenciones:
+    image: postgres:16-alpine
+    container_name: postgres-atenciones
+    environment:
+      POSTGRES_DB: hospital_atenciones
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+
+  postgres-notificaciones:
+    image: postgres:16-alpine
+    container_name: postgres-notificaciones
+    environment:
+      POSTGRES_DB: hospital_notificaciones
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5435:5432"
+
+  postgres-auditoria:
+    image: postgres:16-alpine
+    container_name: postgres-auditoria
+    environment:
+      POSTGRES_DB: hospital_auditoria
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq-hospital
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  eureka-server:
+    build:
+      context: .
+      dockerfile: ./eureka-server/Dockerfile
+    container_name: eureka-server-hospital
+    ports:
+      - "8761:8761"
+
+  gateway:
+    build:
+      context: .
+      dockerfile: ./gateway/Dockerfile
+    container_name: gateway-hospital
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_URL: http://eureka-server:8761/eureka/
+    depends_on:
+      - eureka-server
+
+  pacientes-service:
+    build:
+      context: .
+      dockerfile: ./pacientes-service/Dockerfile
+    container_name: pacientes-service-hospital
+    ports:
+      - "8081:8081"
+    environment:
+      DB_HOST: postgres-pacientes
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      EUREKA_URL: http://eureka-server:8761/eureka/
+      RABBIT_HOST: rabbitmq
+    depends_on:
+      - postgres-pacientes
+      - eureka-server
+      - rabbitmq
+
+  citas-service:
+    build:
+      context: .
+      dockerfile: ./citas-service/Dockerfile
+    container_name: citas-service-hospital
+    ports:
+      - "8082:8082"
+    environment:
+      DB_HOST: postgres-citas
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      EUREKA_URL: http://eureka-server:8761/eureka/
+      RABBIT_HOST: rabbitmq
+    depends_on:
+      - postgres-citas
+      - eureka-server
+      - rabbitmq
+
+  atenciones-service:
+    build:
+      context: .
+      dockerfile: ./atenciones-service/Dockerfile
+    container_name: atenciones-service-hospital
+    ports:
+      - "8083:8083"
+    environment:
+      DB_HOST: postgres-atenciones
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      EUREKA_URL: http://eureka-server:8761/eureka/
+      RABBIT_HOST: rabbitmq
+    depends_on:
+      - postgres-atenciones
+      - eureka-server
+      - rabbitmq
+
+  notificaciones-service:
+    build:
+      context: .
+      dockerfile: ./notificaciones-service/Dockerfile
+    container_name: notificaciones-service-hospital
+    ports:
+      - "8084:8084"
+    environment:
+      DB_HOST: postgres-notificaciones
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      EUREKA_URL: http://eureka-server:8761/eureka/
+      RABBIT_HOST: rabbitmq
+    depends_on:
+      - postgres-notificaciones
+      - eureka-server
+      - rabbitmq
+
+  auditoria-service:
+    build:
+      context: .
+      dockerfile: ./auditoria-service/Dockerfile
+    container_name: auditoria-service-hospital
+    ports:
+      - "8085:8085"
+    environment:
+      DB_HOST: postgres-auditoria
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      EUREKA_URL: http://eureka-server:8761/eureka/
+      RABBIT_HOST: rabbitmq
+    depends_on:
+      - postgres-auditoria
+      - eureka-server
+      - rabbitmq

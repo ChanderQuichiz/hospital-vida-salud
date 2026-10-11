@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: pacientes-service
+          uri: lb://pacientes-service
+          predicates:
+            - Path=/api/pacientes/**
+        - id: citas-service
+          uri: lb://citas-service
+          predicates:
+            - Path=/api/citas/**
+        - id: atenciones-service
+          uri: lb://atenciones-service
+          predicates:
+            - Path=/api/atenciones/**
+        - id: notificaciones-service
+          uri: lb://notificaciones-service
+          predicates:
+            - Path=/api/notificaciones/**
+        - id: auditoria-service
+          uri: lb://auditoria-service
+          predicates:
+            - Path=/api/auditoria/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}

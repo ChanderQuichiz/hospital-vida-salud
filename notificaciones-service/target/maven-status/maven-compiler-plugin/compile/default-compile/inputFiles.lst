@@ -1,0 +1,12 @@
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/NotificacionesServiceApplication.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/infrastructure/persistence/NotificacionR2dbcEntity.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/domain/repositories/NotificacionRepository.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/presentation/NotificacionController.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/domain/entities/Notificacion.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/infrastructure/messaging/RabbitMQListenerAdapter.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/application/dto/NotificacionResponse.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/infrastructure/messaging/RabbitMQConfig.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/application/usecases/ConsultarNotificacionesUseCase.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/application/usecases/ProcesarNotificacionEventoUseCase.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/infrastructure/persistence/NotificacionRepositoryAdapter.java
+/Users/chanderquichiz/Documents/T1_ParedesQuichiz/andina-capital/hospital-vida-salud/notificaciones-service/src/main/java/com/hospital/notificaciones/infrastructure/persistence/SpringDataNotificacionRepository.java

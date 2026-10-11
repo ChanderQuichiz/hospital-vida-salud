@@ -1,0 +1,12 @@
+com/hospital/notificaciones/domain/repositories/NotificacionRepository.class
+com/hospital/notificaciones/domain/entities/Notificacion.class
+com/hospital/notificaciones/infrastructure/persistence/NotificacionR2dbcEntity.class
+com/hospital/notificaciones/NotificacionesServiceApplication.class
+com/hospital/notificaciones/infrastructure/messaging/RabbitMQConfig.class
+com/hospital/notificaciones/application/usecases/ConsultarNotificacionesUseCase.class
+com/hospital/notificaciones/infrastructure/messaging/RabbitMQListenerAdapter.class
+com/hospital/notificaciones/application/usecases/ProcesarNotificacionEventoUseCase.class
+com/hospital/notificaciones/infrastructure/persistence/NotificacionRepositoryAdapter.class
+com/hospital/notificaciones/application/dto/NotificacionResponse.class
+com/hospital/notificaciones/presentation/NotificacionController.class
+com/hospital/notificaciones/infrastructure/persistence/SpringDataNotificacionRepository.class

@@ -1,0 +1,12 @@
+com/hospital/auditoria/AuditoriaServiceApplication.class
+com/hospital/auditoria/application/usecases/ConsultarAuditoriaUseCase.class
+com/hospital/auditoria/domain/entities/AuditoriaLog.class
+com/hospital/auditoria/infrastructure/persistence/SpringDataAuditoriaRepository.class
+com/hospital/auditoria/application/dto/AuditoriaResponse.class
+com/hospital/auditoria/infrastructure/persistence/AuditoriaRepositoryAdapter.class
+com/hospital/auditoria/application/usecases/RegistrarAuditoriaUseCase.class
+com/hospital/auditoria/infrastructure/persistence/AuditoriaR2dbcEntity.class
+com/hospital/auditoria/infrastructure/messaging/RabbitMQConfig.class
+com/hospital/auditoria/domain/repositories/AuditoriaRepository.class
+com/hospital/auditoria/infrastructure/messaging/RabbitMQListenerAdapter.class
+com/hospital/auditoria/presentation/AuditoriaController.class
